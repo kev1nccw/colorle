@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { ENTER_TEXT, DELETE_TEXT } from '../../constants/strings'
 
 type Props = {
-  onChar: (value: string) => void
+  onChar: (value: KeyValue) => void
   onDelete: () => void
   onEnter: () => void
   guesses: string[]
@@ -32,8 +32,11 @@ export const Keyboard = ({ onChar, onDelete, onEnter, guesses }: Props) => {
         onDelete()
       } else {
         const key = e.key.toUpperCase()
-        if (key.length === 1 && key >= 'A' && key <= 'Z') {
-          onChar(key)
+        if (
+          key.length === 1 &&
+          ((key >= 'A' && key <= 'F') || (key >= '0' && key <= '9'))
+        ) {
+          onChar(key as KeyValue)
         }
       }
     }

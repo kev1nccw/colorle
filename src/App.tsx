@@ -29,6 +29,7 @@ import {
 } from './lib/localStorage'
 
 import './App.css'
+import { KeyValue } from './lib/keyboard'
 
 const ALERT_TIME_MS = 2000
 
@@ -105,7 +106,7 @@ function App() {
     }
   }, [isGameWon, isGameLost])
 
-  const onChar = (value: string) => {
+  const onChar = (value: KeyValue) => {
     if (currentGuess.length < 6 && guesses.length < 6 && !isGameWon) {
       setCurrentGuess(`${currentGuess}${value}`)
     }
@@ -153,24 +154,24 @@ function App() {
 
   return (
     <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div className="flex w-80 mx-auto items-center mb-8 mt-12">
+      <div className="flex w-80 justify-between mx-auto items-center mb-8 mt-12">
         <h1 className="text-xl grow font-bold dark:text-white">
           {WORDLE_TITLE}
         </h1>
         <SunIcon
-          className="h-6 w-6 cursor-pointer dark:stroke-white"
+          className="h-6 w-6 mx-1 cursor-pointer dark:stroke-white"
           onClick={() => handleDarkMode(!isDarkMode)}
         />
         <QuestionMarkCircleIcon
-          className="h-6 w-6 cursor-pointer dark:stroke-white"
+          className="h-6 w-6 mx-1 cursor-pointer dark:stroke-white"
           onClick={() => setIsInfoModalOpen(true)}
         />
         <LightBulbIcon
-          className="h-6 w-6 cursor-pointer dark:stroke-white"
+          className="h-6 w-6 mx-1 cursor-pointer dark:stroke-white"
           onClick={() => setIsHintModalOpen(true)}
         />
         <ChartBarIcon
-          className="h-6 w-6 cursor-pointer dark:stroke-white"
+          className="h-6 w-6 mx-1 cursor-pointer dark:stroke-white"
           onClick={() => setIsStatsModalOpen(true)}
         />
       </div>
