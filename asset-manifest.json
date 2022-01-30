@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/colorle/static/css/main.8071d29d.css",
+    "main.js": "/colorle/static/js/main.b9908af9.js",
+    "static/js/787.3500bfec.chunk.js": "/colorle/static/js/787.3500bfec.chunk.js",
+    "index.html": "/colorle/index.html",
+    "main.8071d29d.css.map": "/colorle/static/css/main.8071d29d.css.map",
+    "main.b9908af9.js.map": "/colorle/static/js/main.b9908af9.js.map",
+    "787.3500bfec.chunk.js.map": "/colorle/static/js/787.3500bfec.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8071d29d.css",
+    "static/js/main.b9908af9.js"
+  ]
+}
