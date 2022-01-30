@@ -1,12 +1,6 @@
-const letters = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+import { WORDS } from '../constants/wordlist'
 
-function generateWord(array: string[]) {
-  for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array.slice(0, 6).join("")
-}
+const letters = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
 
 export const isWordInWordList = (word: string) => {
   let flag: boolean = true
@@ -25,17 +19,17 @@ export const isWinningWord = (word: string) => {
 
 export const getWordOfDay = () => {
   
-  // January 1, 2022 Game Epoch
-  const epochMs = new Date('January 1, 2022 00:00:00').valueOf()
+  // January 30, 2022 Game Epoch
+  const epochMs = new Date('January 30, 2022 00:00:00').valueOf()
   const now = Date.now()
   const msInDay = 86400000
   const index = Math.floor((now - epochMs) / msInDay)
   const nextday = (index + 1) * msInDay + epochMs
 
-  const solution = generateWord(letters)
+  const solution = WORDS[index % WORDS.length].toUpperCase()
 
   return {
-    solution: solution.toUpperCase(),
+    solution: solution,
     solutionIndex: index,
     tomorrow: nextday,
   }
