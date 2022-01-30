@@ -1,3 +1,13 @@
 html.dark {
-  background-color: rgb(15, 23, 42);
+  background-color: rgb(26, 28, 34);
+}
+
+div.hint-block {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+}
+
+a.link {
+  text-decoration: underline;
 }

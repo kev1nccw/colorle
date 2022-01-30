@@ -1,7 +1,8 @@
 import {
-  InformationCircleIcon,
+  QuestionMarkCircleIcon,
   ChartBarIcon,
   SunIcon,
+  LightBulbIcon,
 } from '@heroicons/react/outline'
 import { useState, useEffect } from 'react'
 import { Alert } from './components/alerts/Alert'
@@ -9,6 +10,7 @@ import { Grid } from './components/grid/Grid'
 import { Keyboard } from './components/keyboard/Keyboard'
 import { AboutModal } from './components/modals/AboutModal'
 import { InfoModal } from './components/modals/InfoModal'
+import { HintModal } from './components/modals/HintModal'
 import { StatsModal } from './components/modals/StatsModal'
 import {
   WORDLE_TITLE,
@@ -38,6 +40,7 @@ function App() {
   const [currentGuess, setCurrentGuess] = useState('')
   const [isGameWon, setIsGameWon] = useState(false)
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false)
+  const [isHintModalOpen, setIsHintModalOpen] = useState(false)
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false)
   const [isNotEnoughLetters, setIsNotEnoughLetters] = useState(false)
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false)
@@ -103,7 +106,7 @@ function App() {
   }, [isGameWon, isGameLost])
 
   const onChar = (value: string) => {
-    if (currentGuess.length < 5 && guesses.length < 6 && !isGameWon) {
+    if (currentGuess.length < 6 && guesses.length < 6 && !isGameWon) {
       setCurrentGuess(`${currentGuess}${value}`)
     }
   }
@@ -116,7 +119,7 @@ function App() {
     if (isGameWon || isGameLost) {
       return
     }
-    if (!(currentGuess.length === 5)) {
+    if (!(currentGuess.length === 6)) {
       setIsNotEnoughLetters(true)
       return setTimeout(() => {
         setIsNotEnoughLetters(false)
@@ -132,7 +135,7 @@ function App() {
 
     const winningWord = isWinningWord(currentGuess)
 
-    if (currentGuess.length === 5 && guesses.length < 6 && !isGameWon) {
+    if (currentGuess.length === 6 && guesses.length < 6 && !isGameWon) {
       setGuesses([...guesses, currentGuess])
       setCurrentGuess('')
 
@@ -158,9 +161,13 @@ function App() {
           className="h-6 w-6 cursor-pointer dark:stroke-white"
           onClick={() => handleDarkMode(!isDarkMode)}
         />
-        <InformationCircleIcon
+        <QuestionMarkCircleIcon
           className="h-6 w-6 cursor-pointer dark:stroke-white"
           onClick={() => setIsInfoModalOpen(true)}
+        />
+        <LightBulbIcon
+          className="h-6 w-6 cursor-pointer dark:stroke-white"
+          onClick={() => setIsHintModalOpen(true)}
         />
         <ChartBarIcon
           className="h-6 w-6 cursor-pointer dark:stroke-white"
@@ -177,6 +184,10 @@ function App() {
       <InfoModal
         isOpen={isInfoModalOpen}
         handleClose={() => setIsInfoModalOpen(false)}
+      />
+      <HintModal
+        isOpen={isHintModalOpen}
+        handleClose={() => setIsHintModalOpen(false)}
       />
       <StatsModal
         isOpen={isStatsModalOpen}
