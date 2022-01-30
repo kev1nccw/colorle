@@ -4,6 +4,7 @@ import { Histogram } from '../stats/Histogram'
 import { GameStats } from '../../lib/localStorage'
 import { shareStatus } from '../../lib/share'
 import { tomorrow } from '../../lib/words'
+import { colorCode } from './HintHandler'
 import { BaseModal } from './BaseModal'
 import {
   STATISTICS_TITLE,
@@ -49,6 +50,11 @@ export const StatsModal = ({
       handleClose={handleClose}
     >
       <StatBar gameStats={gameStats} />
+      <h4 className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
+        Color of the Day
+      </h4>
+      <div className="reveal-block" style={{background:`${colorCode}`}}></div>
+      <br></br>
       <h4 className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
         {GUESS_DISTRIBUTION_TEXT}
       </h4>

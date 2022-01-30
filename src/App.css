@@ -8,6 +8,12 @@ div.hint-block {
   margin: auto;
 }
 
+div.reveal-block {
+  width: 275px;
+  height: 75px;
+  margin: auto;
+}
+
 a.link {
   text-decoration: underline;
 }
