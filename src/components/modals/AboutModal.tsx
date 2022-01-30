@@ -12,10 +12,12 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
         Do you know a color can be expressed in (R, G, B) form using 3&nbsp;
         <a className="link" href='https://en.wikipedia.org/wiki/Hexadecimal'>hexadecimal</a> values?
         For example, #000000 represents black while #FFFFFF represents white.
+        This is called the color code.
       </p>
       <p className="text-sm text-gray-500 dark:text-gray-300">
         
       </p>
+      <br></br>
       <p className="text-sm text-gray-500 dark:text-gray-300">
         This is an open source clone of the game Wordle -{' '}
         <a
@@ -31,6 +33,10 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
         >
           play the original here
         </a>
+      </p>
+      <br></br>
+      <p className="text-sm text-gray-500 dark:text-gray-300">
+        Envisaged and developed by Kevin Chan.
       </p>
     </BaseModal>
   )
