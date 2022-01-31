@@ -9,13 +9,24 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
   return (
     <BaseModal title="About" isOpen={isOpen} handleClose={handleClose}>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        Do you know a color can be expressed in (R, G, B) form using 3&nbsp;
-        <a className="link" href='https://en.wikipedia.org/wiki/Hexadecimal'>hexadecimal</a> values?
+        Do you know a color can be expressed in{' '}
+        <a
+          href="https://www.w3schools.com/colors/colors_rgb.asp"
+          className="underline font-bold"
+        >
+          (R, G, B)
+        </a> form using 3{' '}
+        <a
+          href="https://en.wikipedia.org/wiki/Hexadecimal"
+          className="underline font-bold"
+        >
+          hexadecimal
+        </a> values?
         For example, #000000 represents black while #FFFFFF represents white.
         This is called the color code.
       </p>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        
+
       </p>
       <br></br>
       <p className="text-sm text-gray-500 dark:text-gray-300">
